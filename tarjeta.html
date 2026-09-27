@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contacto</title>
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800;900&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000; --panel:#050a18; --panel2:#0a1430; --line:#16244a; --acc:#1f6bff; --ice:#b3cfff; --text:#eef3ff; --muted:#8393b8;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif; --body:"Manrope","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --bg:#000; } }
+:root[data-theme="dark"]{ --bg:#000; }
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0; min-height:100svh; background:var(--bg); color:var(--text); font-family:var(--body); font-size:17px; line-height:1.5; display:flex; justify-content:center; overflow-x:hidden}
+a{color:inherit; text-decoration:none}
+:focus-visible{outline:2px solid var(--ice); outline-offset:3px}
+.wrap{width:100%; max-width:440px; padding:0 18px 40px; position:relative}
+.band{height:190px; margin:0 -18px; background:var(--acc); position:relative; overflow:hidden; border-radius:0 0 28px 28px}
+.band::before{content:""; position:absolute; right:-70px; top:-70px; width:240px; height:240px; border-radius:50%; border:34px solid rgba(255,255,255,.12)}
+.band::after{content:""; position:absolute; left:-40px; bottom:-90px; width:180px; height:180px; border-radius:50%; background:rgba(0,0,0,.14)}
+.org{position:absolute; left:22px; top:22px; font-family:var(--display); font-weight:800; font-size:18px; letter-spacing:-.02em; color:#fff; z-index:1}
+.photo{width:138px; aspect-ratio:4/5; margin:-96px auto 0; border-radius:20px; overflow:hidden; border:5px solid var(--bg); position:relative; z-index:2;
+  background:linear-gradient(150deg,var(--acc),#020716); display:grid; place-items:center; box-shadow:0 20px 40px -18px var(--acc)}
+.photo img{width:100%; height:100%; object-fit:cover}
+.photo span{font-family:var(--display); font-weight:900; font-size:46px; color:#fff; letter-spacing:-.05em}
+h1{font-family:var(--display); font-weight:900; font-size:clamp(26px,7.5vw,34px); line-height:1.05; letter-spacing:-.04em; text-align:center; margin:20px 0 8px; overflow-wrap:anywhere}
+.role{text-align:center; color:var(--ice); font-weight:700; margin:0; font-size:16px}
+.place{display:flex; justify-content:center; align-items:center; gap:8px; color:var(--muted); font-weight:700; font-size:14px; margin-top:10px}
+.place i{width:8px; height:8px; border-radius:50%; background:#3ddc97; box-shadow:0 0 10px #3ddc97}
+.wa{display:flex; align-items:center; justify-content:center; gap:12px; margin-top:28px; padding:18px; border-radius:18px; background:#25d366; color:#04210f;
+  font-weight:800; font-size:18px; box-shadow:0 14px 30px -14px #25d366; transition:transform .15s}
+.wa:active{transform:scale(.98)}
+.list{margin-top:14px; border:1px solid var(--line); border-radius:18px; background:var(--panel); overflow:hidden}
+.list a{display:flex; align-items:center; gap:14px; padding:15px 16px; border-top:1px solid var(--line); transition:background .2s}
+.list a:first-child{border-top:0}
+.list a:hover,.list a:active{background:var(--panel2)}
+.ic{width:40px; height:40px; flex:none; border-radius:12px; background:var(--panel2); display:grid; place-items:center; color:var(--ice)}
+.ic svg{width:20px; height:20px}
+.list small{display:block; color:var(--muted); font-weight:700; font-size:13px}
+.list b{display:block; font-weight:800; font-size:15px; overflow-wrap:anywhere}
+.save{width:100%; margin-top:14px; padding:16px; border-radius:18px; border:1.5px solid var(--acc); background:transparent; color:var(--text); font:inherit; font-weight:800; font-size:16px; cursor:pointer;
+  display:flex; justify-content:center; align-items:center; gap:10px}
+.save:hover{background:var(--acc)}
+.bio{color:var(--muted); font-size:15px; text-align:center; margin:26px 4px 0}
+.port{display:block; text-align:center; margin-top:22px; color:var(--ice); font-weight:800; font-size:15px}
+.port:hover{color:#fff}
+.hidden{display:none !important}
+@media (prefers-reduced-motion:no-preference){
+  .photo,h1,.role,.place,.wa,.list,.save{animation:up .6s cubic-bezier(.2,.8,.2,1) both}
+  h1{animation-delay:.05s}.role,.place{animation-delay:.1s}.wa{animation-delay:.16s}.list{animation-delay:.22s}.save{animation-delay:.28s}
+  @keyframes up{from{opacity:0; transform:translateY(16px)}}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="band"><div class="org" id="org"></div></div>
+  <div class="photo"><img id="img" alt="" class="hidden"><span id="ini"></span></div>
+  <h1 id="name"></h1>
+  <p class="role" id="role"></p>
+  <div class="place"><i></i><span id="place"></span></div>
+
+  <a class="wa" id="wa" target="_blank" rel="noopener">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+    Escríbeme por WhatsApp
+  </a>
+
+  <nav class="list" id="list" aria-label="Formas de contacto"></nav>
+
+  <button class="save" type="button" id="save">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+    Guardar en mis contactos
+  </button>
+
+  <p class="bio" id="bio"></p>
+  <a class="port" href="/">Ver mi portafolio completo</a>
+</main>
+
+<script>
+(async function(){
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+// Datos de respaldo (se usan si no se puede leer el portafolio)
+let S = {
+  name:"Daniel Adin Izquierdo Segura", career:"Ingeniería de Software con Inteligencia Artificial", university:"Senati",
+  city:"Perú", available:"Ucayali", email:"daniizquierdo2006@gmail.com", phone:"902492138",
+  github:"https://github.com/Dani2006-ceu", linkedin:"https://www.linkedin.com/in/daniel-izquierdo-1303a9438/", bio:"", badge:{}
+};
+// Lee los datos reales del portafolio, así lo que edites allá también aparece aquí
+try {
+  const html = await (await fetch('/', {cache:'no-store'})).text();
+  const m = html.match(/<script id="state" type="application\/json">([\s\S]*?)<\/script>/);
+  if (m) S = Object.assign(S, JSON.parse(m[1]));
+} catch {}
+try { const lp = JSON.parse(localStorage.getItem('portafolio') || 'null'); if (lp) S = Object.assign(S, lp, {badge: S.badge}); } catch {}
+let B = S.badge || {};
+try { const ls = JSON.parse(localStorage.getItem('fotocheck') || 'null'); if (ls) B = Object.assign({}, B, ls); } catch {}
+
+const acc = B.color || '#1f6bff';
+document.documentElement.style.setProperty('--acc', acc);
+document.querySelector('meta[name="theme-color"]').content = acc;
+const name = S.name.trim().replace(/\s+/g,' ');
+document.title = name + ' — Contacto';
+$('#org').textContent = B.org || (S.university || '').toUpperCase();
+$('#name').textContent = name;
+$('#role').textContent = B.role || S.career;
+$('#place').textContent = [S.available, S.city].filter(Boolean).filter((v,i,a)=>a.indexOf(v)===i).join(', ');
+$('#bio').textContent = S.bio || '';
+if (B.photo){ $('#img').src = B.photo; $('#img').classList.remove('hidden'); $('#ini').classList.add('hidden'); }
+else $('#ini').textContent = name.split(' ').slice(0,2).map(w=>w[0]).join('').toUpperCase();
+
+const digits = String(S.phone||'').replace(/\D/g,'');
+const intl = digits.length === 9 ? '51' + digits : digits;   // Perú: +51
+const url = u => { u = String(u||'').trim(); return !u ? '' : /^https?:\/\//i.test(u) ? u : 'https://' + u; };
+const short = u => u.replace(/^https?:\/\/(www\.)?/,'').replace(/\/$/,'');
+
+if (intl) $('#wa').href = 'https://wa.me/' + intl + '?text=' + encodeURIComponent('Hola ' + name.split(' ')[0] + ', vi tu portafolio y me gustaría conversar contigo.');
+else $('#wa').classList.add('hidden');
+
+const I = {
+  mail:'<path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/>',
+  tel:'<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/>',
+  gh:'<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3.1-.4 6.4-1.5 6.4-7a5.4 5.4 0 0 0-1.5-3.7 5 5 0 0 0-.1-3.8s-1.2-.3-3.9 1.5a13.4 13.4 0 0 0-7 0C6.3 1.7 5.1 2 5.1 2A5 5 0 0 0 5 5.8a5.4 5.4 0 0 0-1.5 3.7c0 5.4 3.3 6.6 6.4 7a3.4 3.4 0 0 0-.9 2.6V22"/>',
+  in:'<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><path d="M2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/>'
+};
+const row = (href, ic, lbl, val, ext) => '<a href="'+esc(href)+'"'+(ext?' target="_blank" rel="noopener"':'')+'><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+I[ic]+'</svg></span><span><small>'+lbl+'</small><b>'+esc(val)+'</b></span></a>';
+const rows = [];
+if (S.email) rows.push(row('mailto:' + S.email, 'mail', 'Correo', S.email));
+if (intl) rows.push(row('tel:+' + intl, 'tel', 'Llamar', '+' + intl.replace(/^51(\d{3})(\d{3})(\d{3})$/, '51 $1 $2 $3')));
+if (S.github) rows.push(row(url(S.github), 'gh', 'GitHub', short(url(S.github)), true));
+if (S.linkedin) rows.push(row(url(S.linkedin), 'in', 'LinkedIn', 'Ver perfil', true));
+$('#list').innerHTML = rows.join('');
+
+// Contacto descargable (.vcf) para guardar directo en el celular
+$('#save').onclick = () => {
+  const parts = name.split(' ');
+  const v = ['BEGIN:VCARD','VERSION:3.0',
+    'N:' + parts.slice(-2).join(' ') + ';' + parts.slice(0,-2).join(' ') + ';;;',
+    'FN:' + name, 'TITLE:' + (B.role || S.career), 'ORG:' + (S.university||''),
+    intl ? 'TEL;TYPE=CELL:+' + intl : '', S.email ? 'EMAIL:' + S.email : '',
+    'URL:' + location.origin, S.github ? 'URL:' + url(S.github) : '',
+    B.photo ? 'PHOTO;ENCODING=b;TYPE=JPEG:' + B.photo.split(',')[1] : '',
+    'END:VCARD'].filter(Boolean).join('\r\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([v], {type:'text/vcard'}));
+  a.download = name.split(' ')[0] + '.vcf'; document.body.appendChild(a); a.click(); a.remove();
+};
+})();
+</script>
+</body>
+</html>
